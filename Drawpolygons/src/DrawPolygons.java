@@ -3,27 +3,30 @@ import java.awt.*;
 import java.util.*;
 
 public class DrawPolygons extends Component{
-    private ArrayList<String> polygonNames;
-    private ArrayList<Point>  centerPoints;
+    private ArrayList<Polygon> polygonList;
 
     public DrawPolygons(){
-        polygonNames = new ArrayList<>(10);
-        centerPoints = new ArrayList<>(10);
+        Point p1 = new Point(100,100);
+        Point p2 = new Point(150,150);
+        Point p3 = new Point(100,200);
 
-        polygonNames.add("square");
-        polygonNames.add("triangle");
-        polygonNames.add("rectangle");
+        polygonList = new ArrayList<>(3);
 
-        centerPoints.add(new Point(100,100));
-        centerPoints.add(new Point(150,150));
-        centerPoints.add(new Point(100,200));
+        polygonList.add(new Polygon("square" , p1));
+        polygonList.add(new Polygon("triangle" , p2));
+        polygonList.add(new Polygon("rectangle" , p3));
+
+        System.out.println(polygonList.get(2).centerpoint.getX());
+
     }//constructor
 
     @Override
     public void paint(Graphics g) {
-        for (int i = 0; i < polygonNames.size(); i++) {
-            String currentPolygon = polygonNames.get(i);
-            Point currentCenter = centerPoints.get(i);
+        for (int i = 0; i < polygonList.size(); i++) {
+
+            String currentPolygon = polygonList.get(i).p_type;
+            Point currentCenter = polygonList.get(i).centerpoint;
+
             if (currentPolygon.equals("square"))
                 g.drawRect(currentCenter.x -10, currentCenter.y -10, 20, 20);
             else if (currentPolygon.equals("triangle")) {
