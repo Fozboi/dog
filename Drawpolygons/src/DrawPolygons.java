@@ -6,7 +6,7 @@ public class DrawPolygons extends Component{
     private ArrayList<String> polygonNames;
     private ArrayList<Point>  centerPoints;
 
-    public DrawPolygons(Point p1, Point p2, Point p3){
+    public DrawPolygons(){
         polygonNames = new ArrayList<>(10);
         centerPoints = new ArrayList<>(10);
 
@@ -14,9 +14,9 @@ public class DrawPolygons extends Component{
         polygonNames.add("triangle");
         polygonNames.add("rectangle");
 
-        centerPoints.add(p1);
-        centerPoints.add(p2);
-        centerPoints.add(p3);
+        centerPoints.add(new Point(100,100));
+        centerPoints.add(new Point(150,150));
+        centerPoints.add(new Point(100,200));
     }//constructor
 
     @Override
@@ -37,18 +37,8 @@ public class DrawPolygons extends Component{
     }//paint
 
     public static void main(String[] args) {
-        Point p1 = new Point(100,100);
-        Point p2 = new Point(150,150);
-        Point p3 = new Point(100,200);
-
-        ArrayList<Point> coords = new ArrayList<Point>(10);
-
-        coords.add(p1);
-        coords.add(p2);
-        coords.add(p3);
-        
         JFrame frame = new JFrame();
-        DrawPolygons polygons = new DrawPolygons(p1,p2,p3);
+        DrawPolygons polygons = new DrawPolygons();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(30,30,300,300);
