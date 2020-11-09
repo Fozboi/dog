@@ -7,7 +7,7 @@ public class DrawPolygons extends Component{
 
     public DrawPolygons(){
         Point p1 = new Point(100,100);
-        Point p2 = new Point(150,150);
+        Point p2 = new Point(150,250);
         Point p3 = new Point(100,200);
 
         polygonList = new ArrayList<>(3);
@@ -15,9 +15,6 @@ public class DrawPolygons extends Component{
         polygonList.add(new Polygon("square" , p1));
         polygonList.add(new Polygon("triangle" , p2));
         polygonList.add(new Polygon("rectangle" , p3));
-
-        System.out.println(polygonList.get(2).centerpoint.getX());
-
     }//constructor
 
     @Override
